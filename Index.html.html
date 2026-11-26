@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ali Baba Pizza - Family Restaurant | Free Home Delivery Dijkot</title>
+<meta name="description" content="Ali Baba Pizza Family Restaurant - Premium Pizzas, Deals, Burgers, Shawarma, Fried Chicken. Free Home Delivery in Dijkot. Order on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#f7941d; --orange-dark:#e07f00; --orange-light:#ffb45e;
+  --dark:#17171a; --dark2:#1f1f24; --dark3:#26262c; --card:#202024;
+  --text:#f2f2f2; --muted:#b8b8c0; --green:#25d366; --green-dark:#1ebe5b;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Poppins',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+@keyframes pulseRing{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.8);opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{0%{transform:scale(.6);opacity:0}80%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ---------- HEADER ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(23,23,26,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(247,148,29,.25)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:10px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:42px;height:42px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.logo-name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;line-height:1.05;color:#fff}
+.logo-name span{color:var(--orange);display:block;font-size:13px;letter-spacing:2px}
+.nav-desktop{display:flex;gap:4px;align-items:center}
+.nav-desktop a{padding:8px 13px;border-radius:10px;font-size:13.5px;font-weight:600;color:var(--muted);transition:.2s}
+.nav-desktop a:hover,.nav-desktop a.active{background:var(--orange);color:#171717}
+.cart-btn{position:relative;background:var(--orange);color:#171717;width:44px;height:44px;border-radius:12px;font-size:20px;display:flex;align-items:center;justify-content:center;transition:.2s}
+.cart-btn:hover{background:var(--orange-light);transform:scale(1.06)}
+.cart-count{position:absolute;top:-7px;right:-7px;background:var(--green);color:#fff;font-size:11px;font-weight:700;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid var(--dark);animation:popIn .3s}
+.menu-toggle{display:none;background:var(--dark3);color:#fff;width:44px;height:44px;border-radius:12px;font-size:22px}
+@media(max-width:900px){.nav-desktop{display:none}.menu-toggle{display:flex;align-items:center;justify-content:center}}
+
+/* mobile nav */
+.mobile-nav{position:fixed;top:64px;left:0;right:0;z-index:890;background:var(--dark2);border-bottom:2px solid var(--orange);max-height:0;overflow-y:auto;transition:max-height .35s ease}
+.mobile-nav.open{max-height:70vh}
+.mobile-nav a{display:block;padding:13px 20px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.06);color:var(--text)}
+.mobile-nav a:active{background:var(--dark3)}
+
+/* ---------- HERO ---------- */
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 18px 60px;position:relative;background:radial-gradient(ellipse at 50% -10%,rgba(247,148,29,.22),transparent 60%),var(--dark);overflow:hidden}
+.hero-badge{background:rgba(247,148,29,.15);border:1px solid var(--orange);color:var(--orange-light);padding:7px 18px;border-radius:30px;font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:20px;animation:fadeUp .7s}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(42px,9vw,86px);line-height:1.02;font-weight:700;text-transform:uppercase;animation:fadeUp .7s .1s both}
+.hero h1 .orange{color:var(--orange);display:block;text-shadow:0 0 40px rgba(247,148,29,.4)}
+.hero p{color:var(--muted);max-width:560px;margin:18px auto 30px;font-size:16px;animation:fadeUp .7s .2s both}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp .7s .3s both}
+.btn-primary{background:var(--orange);color:#171717;padding:15px 34px;border-radius:50px;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;transition:.25s;box-shadow:0 8px 28px rgba(247,148,29,.35)}
+.btn-primary:hover{background:var(--orange-light);transform:translateY(-3px);box-shadow:0 12px 34px rgba(247,148,29,.5)}
+.btn-whatsapp{background:var(--green);color:#fff;padding:15px 34px;border-radius:50px;font-weight:700;font-size:16px;display:inline-flex;align-items:center;gap:10px;transition:.25s;box-shadow:0 8px 28px rgba(37,211,102,.3)}
+.btn-whatsapp:hover{background:var(--green-dark);transform:translateY(-3px)}
+.pizza-float{position:absolute;font-size:90px;opacity:.1;animation:float 7s ease-in-out infinite;pointer-events:none}
+.hero-delivery{margin-top:34px;display:flex;gap:20px;flex-wrap:wrap;justify-content:center;animation:fadeUp .7s .4s both}
+.hero-delivery div{display:flex;align-items:center;gap:8px;color:var(--orange-light);font-weight:600;font-size:14px}
+.hero-delivery .dot{width:8px;height:8px;background:var(--orange);border-radius:50%;box-shadow:0 0 12px var(--orange)}
+
+/* ---------- SECTIONS ---------- */
+section{max-width:1200px;margin:0 auto;padding:56px 16px}
+.section-head{text-align:center;margin-bottom:36px}
+.section-head h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,5vw,44px);text-transform:uppercase}
+.section-head h2 span{color:var(--orange)}
+.section-head p{color:var(--muted);font-size:14px;margin-top:6px}
+
+/* category chips */
+.chips{display:flex;gap:10px;overflow-x:auto;padding:6px 4px 14px;margin-bottom:26px;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:sticky;top:64px;z-index:500;background:var(--dark);padding-top:12px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;padding:10px 20px;border-radius:40px;background:var(--dark3);color:var(--muted);font-weight:600;font-size:13.5px;border:1px solid rgba(255,255,255,.07);transition:.2s}
+.chip.active,.chip:hover{background:var(--orange);color:#171717;border-color:var(--orange)}
+.chip:active{transform:scale(.94)}
+
+/* ---------- GRIDS & CARDS ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--card),var(--dark2));border:1px solid rgba(247,148,29,.14);border-radius:var(--radius);padding:20px;position:relative;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);border-color:var(--orange);box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.card-emoji{font-size:42px;margin-bottom:12px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.4))}
+.card h3{font-size:16.5px;font-weight:700;margin-bottom:5px}
+.card .desc{color:var(--muted);font-size:12.5px;margin-bottom:12px;flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+.price{font-family:'Oswald',sans-serif;font-size:22px;color:var(--orange);font-weight:700}
+.price small{font-size:12px;color:var(--muted);font-family:'Poppins',sans-serif;font-weight:400;display:block}
+.add-btn{background:var(--orange);color:#171717;padding:10px 16px;border-radius:12px;font-weight:700;font-size:13px;transition:.2s;white-space:nowrap}
+.add-btn:hover{background:var(--orange-light);transform:scale(1.05)}
+.add-btn:active{transform:scale(.95)}
+.tag{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.5px}
+.tag.hot{background:#e23b3b}
+
+/* deals */
+.deal-card{background:linear-gradient(150deg,#2a2117,var(--dark2));border:1.5px solid var(--orange)}
+.deal-num{position:absolute;top:-12px;left:16px;background:var(--orange);color:#171717;font-family:'Oswald',sans-serif;font-weight:700;padding:3px 14px;border-radius:8px;font-size:14px}
+.deal-items{list-style:none;margin-bottom:12px;flex:1}
+.deal-items li{font-size:12.5px;color:var(--muted);padding:3px 0 3px 16px;position:relative}
+.deal-items li:before{content:"\2713";position:absolute;left:0;color:var(--orange);font-weight:700}
+
+/* size selector */
+.size-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.size-btn{flex:1;min-width:56px;padding:7px 4px;border-radius:10px;background:var(--dark3);border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:11.5px;font-weight:600;transition:.18s;text-align:center;line-height:1.25}
+.size-btn .sp{display:block;font-family:'Oswald',sans-serif;font-size:15px;color:#fff}
+.size-btn.active{background:var(--orange);border-color:var(--orange);color:#171717}
+.size-btn.active .sp{color:#171717}
+.f-pasta-row{display:flex;gap:6px;margin-bottom:10px}
+.f-pasta-row .size-btn{font-size:11px}
+
+/* platter cards */
+.platter-card{text-align:center;background:linear-gradient(160deg,#241d14,var(--dark2))}
+.platter-card ul{list-style:none;margin:10px 0 14px;flex:1}
+.platter-card li{font-size:13px;color:var(--muted);padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.platter-card li:last-child{border:none}
+
+/* cakes */
+.cake-grid .card{text-align:center}
+.cake-price-note{color:var(--orange-light);font-size:12.5px;font-weight:600;margin-bottom:12px}
+
+/* ---------- CART DRAWER ---------- */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:950;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.open{opacity:1;pointer-events:auto}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--dark2);z-index:960;transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.3,1);display:flex;flex-direction:column;border-left:2px solid var(--orange)}
+.cart-drawer.open{transform:translateX(0)}
+.cart-head{padding:18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.08)}
+.cart-head h3{font-family:'Oswald',sans-serif;font-size:20px}
+.cart-close{background:var(--dark3);color:#fff;width:38px;height:38px;border-radius:10px;font-size:18px}
+.cart-items{flex:1;overflow-y:auto;padding:14px 18px}
+.cart-empty{text-align:center;color:var(--muted);padding:50px 10px;font-size:14px}
+.cart-empty .big{font-size:50px;display:block;margin-bottom:14px}
+.c-item{display:flex;gap:12px;align-items:center;background:var(--dark3);border-radius:14px;padding:12px;margin-bottom:10px;animation:popIn .3s}
+.c-item .c-info{flex:1;min-width:0}
+.c-item .c-name{font-weight:600;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-item .c-price{color:var(--orange);font-size:13px;font-weight:600}
+.qty-row{display:flex;align-items:center;gap:8px}
+.qty-btn{width:28px;height:28px;border-radius:8px;background:var(--dark);color:#fff;font-size:16px;font-weight:700;border:1px solid rgba(255,255,255,.1)}
+.qty-btn:active{background:var(--orange);color:#171717}
+.c-item .qty-num{font-weight:700;min-width:18px;text-align:center;font-size:14px}
+.c-del{background:none;color:#e05555;font-size:17px;padding:4px}
+.cart-foot{padding:16px 18px;border-top:1px solid rgba(255,255,255,.08);background:var(--dark3)}
+.cart-total-row{display:flex;justify-content:space-between;font-weight:700;font-size:17px;margin-bottom:14px}
+.cart-total-row span:last-child{color:var(--orange);font-family:'Oswald',sans-serif;font-size:22px}
+.cart-foot input,.cart-foot textarea{width:100%;background:var(--dark);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;padding:12px 14px;font-family:inherit;font-size:13.5px;margin-bottom:10px;outline:none;transition:.2s}
+.cart-foot input:focus,.cart-foot textarea:focus{border-color:var(--orange)}
+.cart-foot textarea{resize:none;height:64px}
+.wa-checkout{width:100%;background:var(--green);color:#fff;padding:15px;border-radius:14px;font-weight:700;font-size:15.5px;display:flex;align-items:center;justify-content:center;gap:10px;transition:.2s}
+.wa-checkout:hover{background:var(--green-dark)}
+.clear-btn{width:100%;background:none;color:var(--muted);font-size:12.5px;margin-top:10px;padding:6px}
+.clear-btn:hover{color:#e05555}
+
+/* ---------- FLOATING WHATSAPP ---------- */
+.wa-float{position:fixed;bottom:22px;left:22px;z-index:940;width:58px;height:58px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.45);transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float:before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--green);animation:pulseRing 1.8s ease-out infinite;z-index:-1}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+.wa-tip{position:fixed;bottom:34px;left:90px;z-index:940;background:#fff;color:#171717;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:.3s;white-space:nowrap}
+.wa-float:hover ~ .wa-tip{opacity:1}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--dark2);border-top:2px solid var(--orange);margin-top:40px}
+.footer-inner{max-width:1200px;margin:0 auto;padding:44px 16px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
+.footer-inner h4{font-family:'Oswald',sans-serif;color:var(--orange);margin-bottom:14px;font-size:18px;letter-spacing:1px}
+.footer-inner p,.footer-inner a{color:var(--muted);font-size:13.5px;display:block;padding:4px 0;line-height:1.6}
+.footer-inner a:hover{color:var(--orange-light)}
+.footer-bottom{text-align:center;color:#777;font-size:12px;padding:18px;border-top:1px solid rgba(255,255,255,.06)}
+.call-link{display:inline-flex;align-items:center;gap:8px;background:var(--dark3);padding:8px 14px;border-radius:10px;margin-top:6px;font-weight:600;color:#fff!important}
+.free-del{display:inline-block;background:rgba(247,148,29,.15);border:1px solid var(--orange);color:var(--orange-light);padding:8px 16px;border-radius:30px;font-size:12.5px;font-weight:700;margin-top:10px}
+
+/* ---------- TOAST ---------- */
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%) translateY(30px);background:var(--orange);color:#171717;padding:13px 26px;border-radius:40px;font-weight:700;font-size:14px;z-index:990;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 30px rgba(0,0,0,.5);white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast .tick{margin-right:6px}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#home" class="logo">
+      <div class="logo-icon">🍕</div>
+      <div class="logo-name">ALI BABA<span>PIZZA · FAMILY RESTAURANT</span></div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#home">Home</a><a href="#deals">Deals</a><a href="#pizza">Pizza</a><a href="#friedchicken">Chicken</a><a href="#burgers">Burgers</a><a href="#shawarma">Shawarma</a><a href="#desserts">Desserts</a><a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button class="cart-btn" id="cartBtn" aria-label="Cart">🛒<span class="cart-count" id="cartCount" style="display:none">0</span></button>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#home">🏠 Home</a><a href="#deals">🔥 Deals</a><a href="#pizza">🍕 Pizza</a><a href="#friedchicken">🍗 Fried Chicken</a><a href="#burgers">🍔 Burgers</a><a href="#sandwich">🥪 Sandwiches</a><a href="#shawarma">🌯 Shawarma</a><a href="#paratha">🫓 Paratha Roll</a><a href="#pasta">🍝 Pasta</a><a href="#platters">🍱 Platters</a><a href="#desserts">🍰 Desserts & Cakes</a><a href="#contact">📞 Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="pizza-float" style="top:14%;left:6%">🍕</div>
+  <div class="pizza-float" style="bottom:16%;right:8%;animation-delay:2s">🍔</div>
+  <div class="pizza-float" style="top:55%;left:12%;animation-delay:4s">🥤</div>
+  <div class="hero-badge">⭐ FAMILY RESTAURANT · FREE HOME DELIVERY</div>
+  <h1>ALI BABA <span class="orange">PIZZA</span></h1>
+  <p>Premium pizzas, sizzling fried chicken, juicy burgers, shawarmas & more — made fresh and delivered hot to your doorstep in Dijkot.</p>
+  <div class="hero-cta">
+    <a href="#deals" class="btn-primary">🔥 View Deals</a>
+    <a href="https://wa.me/923218583112?text=Assalam-o-Alaikum!%20I%20want%20to%20place%20an%20order%20at%20Ali%20Baba%20Pizza." target="_blank" class="btn-whatsapp">🟢 Order on WhatsApp</a>
+  </div>
+  <div class="hero-delivery">
+    <div><span class="dot"></span>Free Home Delivery</div>
+    <div><span class="dot"></span>Fresh &amp; Hot</div>
+    <div><span class="dot"></span>Fast Service</div>
+  </div>
+</div>
+
+<!-- CHIPS NAV -->
+<div style="max-width:1200px;margin:0 auto;padding:0 16px"><div class="chips" id="chips"></div></div>
+
+<!-- DEALS -->
+<section id="deals">
+  <div class="section-head reveal"><h2>🔥 Hot <span>Deals</span></h2><p>Best value combos — pizza, burgers, wings & drinks</p></div>
+  <div class="grid" id="dealsGrid"></div>
+</section>
+
+<!-- PIZZA -->
+<section id="pizza">
+  <div class="section-head reveal"><h2>🍕 Our <span>Pizzas</span></h2><p>Select a size &amp; add to your order</p></div>
+  <div id="pizzaSections"></div>
+</section>
+
+<!-- FRIED CHICKEN -->
+<section id="friedchicken">
+  <div class="section-head reveal"><h2>🍗 Fried <span>Chicken</span></h2></div>
+  <div class="grid" id="chickenGrid"></div>
+</section>
+
+<!-- BURGERS -->
+<section id="burgers">
+  <div class="section-head reveal"><h2>🍔 <span>Burgers</span></h2></div>
+  <div class="grid" id="burgerGrid"></div>
+</section>
+
+<!-- SANDWICH -->
+<section id="sandwich">
+  <div class="section-head reveal"><h2>🥪 <span>Sandwiches</span></h2></div>
+  <div class="grid" id="sandwichGrid"></div>
+</section>
+
+<!-- SHAWARMA -->
+<section id="shawarma">
+  <div class="section-head reveal"><h2>🌯 <span>Shawarma</span></h2></div>
+  <div class="grid" id="shawarmaGrid"></div>
+</section>
+
+<!-- PARATHA ROLL -->
+<section id="paratha">
+  <div class="section-head reveal"><h2>🫓 Paratha <span>Roll &amp; Wraps</span></h2></div>
+  <div class="grid" id="parathaGrid"></div>
+</section>
+
+<!-- PASTA -->
+<section id="pasta">
+  <div class="section-head reveal"><h2>🍝 <span>Pasta</span></h2><p>Available in Family size (F-1) &amp; Party size (F-2)</p></div>
+  <div class="grid" id="pastaGrid"></div>
+</section>
+
+<!-- PLATTERS -->
+<section id="platters">
+  <div class="section-head reveal"><h2>🍱 <span>Platters</span></h2></div>
+  <div class="grid" id="platterGrid"></div>
+</section>
+
+<!-- DESSERTS -->
+<section id="desserts">
+  <div class="section-head reveal"><h2>🍰 Desserts <span>&amp; Mix</span></h2></div>
+  <div class="grid" id="dessertGrid"></div>
+</section>
+
+<!-- BIRTHDAY CAKES -->
+<section id="cakes">
+  <div class="section-head reveal"><h2>🎂 Birthday <span>Cakes</span></h2><p>Freshly baked for your special day</p></div>
+  <div class="grid cake-grid" id="cakeGrid"></div>
+</section>
+
+<!-- SAUCES -->
+<section id="sauces">
+  <div class="section-head reveal"><h2>🥣 <span>Sauces</span></h2></div>
+  <div class="grid" id="sauceGrid"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-head reveal"><h2>📞 <span>Contact &amp; Delivery</span></h2></div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="card reveal" style="text-align:center"><div class="card-emoji">📍</div><h3>Our Address</h3><p class="desc" style="margin-bottom:16px">Near Ali Baba Bakery,<br>Main Adda Dijkot, Pakistan</p><span class="free-del">🛵 Free Home Delivery</span></div>
+    <div class="card reveal" style="text-align:center"><div class="card-emoji">📱</div><h3>Call to Order</h3>
+      <a class="call-link" href="tel:03218583112">📞 0321-8583112</a><br><br>
+      <a class="call-link" href="tel:03038583311">📞 0303-8583311</a></div>
+    <div class="card reveal" style="text-align:center"><div class="card-emoji">🟢</div><h3>WhatsApp Order</h3><p class="desc" style="margin-bottom:16px">Fastest way to order — send your cart directly on WhatsApp</p><a class="btn-whatsapp" style="padding:12px 26px;font-size:14px" href="https://wa.me/923218583112" target="_blank">Chat Now</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div><h4>🍕 ALI BABA PIZZA</h4><p>Family Restaurant serving premium pizzas, fried chicken, burgers, shawarmas, pasta &amp; fresh birthday cakes in Dijkot.</p><span class="free-del">🛵 Free Home Delivery</span></div>
+    <div><h4>QUICK MENU</h4><a href="#deals">Hot Deals</a><a href="#pizza">Pizzas</a><a href="#burgers">Burgers</a><a href="#shawarma">Shawarma</a><a href="#desserts">Desserts &amp; Cakes</a></div>
+    <div><h4>CONTACT</h4><p>📍 Near Ali Baba Bakery, Main Adda Dijkot</p><a href="tel:03218583112">📞 0321-8583112</a><a href="tel:03038583311">📞 0303-8583311</a><a href="https://wa.me/923218583112" target="_blank">🟢 WhatsApp Us</a></div>
+    <div><h4>OPENING</h4><p>Serving fresh &amp; hot, all day<br>Home delivery available across Dijkot</p></div>
+  </div>
+  <div class="footer-bottom">© <span id="year"></span> Ali Baba Pizza · Family Restaurant, Dijkot. All rights reserved.</div>
+</footer>
+
+<!-- CART -->
+<div class="overlay" id="overlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head"><h3>🛒 Your Order</h3><button class="cart-close" id="cartClose">✕</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total-row"><span>Total</span><span id="cartTotal">Rs. 0</span></div>
+    <input type="text" id="custName" placeholder="Your Name">
+    <textarea id="custAddr" placeholder="Delivery Address (e.g. street / mohalla, Dijkot)"></textarea>
+    <button class="wa-checkout" id="waCheckout">🟢 Send Order on WhatsApp</button>
+    <button class="clear-btn" id="clearCart">Clear Cart</button>
+  </div>
+</div>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/923218583112?text=Assalam-o-Alaikum!%20I%20want%20to%20order%20from%20Ali%20Baba%20Pizza." target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 2.9C8.8 2.9 2.9 8.8 2.9 16c0 2.3.6 4.6 1.8 6.5L2.8 29.2l6.9-1.8c1.9 1.1 4 1.6 6.2 1.6 7.2 0 13.1-5.9 13.1-13.1S23.2 2.9 16 2.9zm0 23.8c-2 0-3.9-.5-5.6-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9C5 10 9.9 5.1 16 5.1S27 10 27 16.1 22.1 26.7 16 26.7zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+<div class="wa-tip">Chat with us on WhatsApp</div>
+
+<div class="toast" id="toast"><span class="tick">✓</span><span id="toastMsg">Added to cart</span></div>
+
+<script>
+/* ============ DATA FROM MENU IMAGES ============ */
+const WA_NUMBER = "923218583112";
+
+const deals = [
+ {n:1, items:["2 Small Pizza Regular","Half Ltr. Drink"], price:1000, tag:"BEST VALUE"},
+ {n:2, items:["1 Small Pizza Regular","1 Zinger Burger","Half Ltr. Drink"], price:880},
+ {n:3, items:["3 Zinger Burgers","1 Ltr. Drink"], price:1050},
+ {n:4, items:["5 Zinger Burgers","1.5 Ltr. Drink"], price:1700, tag:"FAMILY"},
+ {n:5, items:["1 Large Pizza","10 Hot Wings","1.5 Ltr. Drink"], price:1850, tag:"HOT"},
+ {n:6, items:["1 Medium Pizza","2 Zinger Burgers","1 Ltr. Drink"], price:1550},
+ {n:7, items:["1 Medium Pizza","10 Hot Wings","1 Ltr. Drink"], price:1450},
+ {n:8, items:["1 Large Pizza","2 Zinger Burgers","1.5 Ltr. Drink"], price:2000},
+ {n:9, items:["2 Large Pizza Regular","1.5 Ltr. Drink"], price:2450},
+ {n:10, items:["2 Large Pizza Special","1.5 Ltr. Drink"], price:2800, tag:"PARTY"}
+];
+
+const pizzas = [
+ {cat:"PREMIUM PIZZA", emoji:"👑", flavors:["Italiano Beef","Creamy Tikka","Spicy Legend","Chicken Seekh Kabab","Chicken Supreme"], sizes:{Medium:900,Large:1450,XL:1800}},
+ {cat:"SPECIAL PIZZA", emoji:"🌟", flavors:["Special Pizza","Malai Boti","Behari Kabab","Peri Peri","Chicken Sausages"], sizes:{Small:500,Medium:850,Large:1400,XL:1800}},
+ {cat:"REGULAR PIZZA", emoji:"🍕", flavors:["Chicken Tikka","Chicken Fajita","Super Cheese","Hot & Spice","Veggie Lover","Chicken B.B.Q"], sizes:{Small:480,Medium:800,Large:1250,XL:1650}},
+ {cat:"STUFFER PIZZA", emoji:"🧀", flavors:["Kabab Stuffer","Chicken Stuffer","Cheese Stuffer"], sizes:{Medium:950,Large:1450,XL:1900}},
+ {cat:"ROYAL CRUST PIZZA", emoji:"👑", flavors:["Royal Crust Pizza"], sizes:{Medium:1100,Large:1450,XL:1900}}
+];
+
+const chicken = [
+ {name:"Hot Wings", desc:"5 pcs / 10 pcs crispy hot wings", emoji:"🍗", opts:[["5pcs",270],["10pcs",530]]},
+ {name:"Oven Baked Wings", desc:"5 pcs / 10 pcs healthy baked wings", emoji:"🔥", opts:[["5pcs",270],["10pcs",530]]},
+ {name:"Peri Peri Wings", desc:"5 pcs / 10 pcs spicy peri peri wings", emoji:"🌶️", opts:[["5pcs",270],["10pcs",530]]},
+ {name:"Nuggets", desc:"5 pcs / 10 pcs golden chicken nuggets", emoji:"🍗", opts:[["5pcs",220],["10pcs",430]]},
+ {name:"Family Fries", desc:"Big portion of crispy golden fries", emoji:"🍟", price:400},
+ {name:"Regular Fries", desc:"Crispy golden fries", emoji:"🍟", price:200},
+ {name:"Spin Roll", desc:"4 pcs delicious spin rolls", emoji:"🌯", price:580},
+ {name:"Grilled Sandwich", desc:"Toasted grilled chicken sandwich", emoji:"🥪", price:430},
+ {name:"Tortilla Melts", desc:"Cheesy grilled tortilla melts", emoji:"🫓", price:490},
+ {name:"Chicken Kickers", desc:"8 pcs spicy boneless kickers", emoji:"🍗", price:400},
+ {name:"Loaded Fries", desc:"Fries topped with chicken & cheese", emoji:"🧀", price:450}
+];
+
+const burgers = [
+ ["Zinger Burger",320],["Zinger Cheese Burger",420],["Patty Burger",270],["Patty Cheese Burger",350],
+ ["Tower Burger",450],["Grilled Burger",400],["Chicken Burger",200]
+];
+
+const sandwiches = [
+ ["Tikka Sandwich",400],["Jalapeno Sandwich",420],["Grilled Sandwich",430],["In Crusted Sandwich",450],
+ ["Chicken Donut",300],["Club Sandwich",200],["Maxo Fried Sandwich",250],["Pizza Sandwich",450]
+];
+
+const shawarmas = [
+ ["Malai Boti Shawarma",270],["Chicken Shawarma",200],["Kabab Shawarma",250],["Pizza Shawarma",360],
+ ["Zinger Shawarma",270],["Grilled Shawarma",380],["Chicken Doner",450]
+];
+
+const parathas = [
+ ["Chicken Paratha Roll",320],["Kabab Paratha Roll",340],["Zinger Paratha Roll",400],
+ ["Chicken Wrap",350],["Zinger Wrap",400]
+];
+
+const pastas = [
+ ["Creamy Pasta",390,600],["Macrony Pasta",390,600],["Crunchy Pasta",500,680],["Kabab Pasta",500,680]
+];
+
+const platters = [
+ {name:"Platter 1", items:["Spin Roll 4 pcs","Baked Wings 6 pcs","Fries","Dip Sauce"], price:900},
+ {name:"Platter 2", items:["Baked Wings 6 pcs","Hot Wings 6 pcs","Peri Peri Wings 6 pcs","Fries","Dip Sauce"], price:950}
+];
+
+const desserts = [
+ ["Molten Lava Cake",390],["Chocolate Brownie",200],["Choco Bread",390]
+];
+
+const cakes = ["Caramel Cake","Red Velvet Cake","Chocolate Cake","Black Forest Cake","Coffee Cake","Ice Cream Cake","Vanilla Cake","Dry Nuts Cake"];
+
+const sauces = ["Dip Sauce","Garlic Sauce","Special Sauce"];
+
+/* ============ RENDER ============ */
+const fmt = n => "Rs. " + n.toLocaleString();
+
+/* chips */
+const chipData = [["deals","🔥 Deals"],["pizza","🍕 Pizza"],["friedchicken","🍗 Chicken"],["burgers","🍔 Burgers"],["sandwich","🥪 Sandwich"],["shawarma","🌯 Shawarma"],["paratha","🫓 Paratha Roll"],["pasta","🍝 Pasta"],["platters","🍱 Platters"],["desserts","🍰 Desserts"],["cakes","🎂 Cakes"]];
+document.getElementById("chips").innerHTML = chipData.map((c,i)=>`<button class="chip ${i===0?"active":""}" data-target="${c[0]}">${c[1]}</button>`).join("");
+
+/* deals */
+document.getElementById("dealsGrid").innerHTML = deals.map(d=>`
+ <div class="card deal-card reveal"><div class="deal-num">DEAL ${String(d.n).padStart(2,"0")}</div>
+  ${d.tag?`<span class="tag hot">${d.tag}</span>`:""}
+  <div class="card-emoji">🎁</div>
+  <ul class="deal-items">${d.items.map(i=>`<li>${i}</li>`).join("")}</ul>
+  <div class="card-foot"><div class="price">${fmt(d.price)}<small>combo deal</small></div>
+  <button class="add-btn" onclick="addToCart('Deal ${d.n}',${d.price})">+ ADD</button></div></div>`).join("");
+
+/* pizzas */
+document.getElementById("pizzaSections").innerHTML = pizzas.map((pz,pi)=>`
+ <div style="margin-bottom:36px" class="reveal">
+  <h3 style="font-family:'Oswald',sans-serif;font-size:22px;color:var(--orange-light);margin-bottom:4px">${pz.emoji} ${pz.cat}</h3>
+  <p style="color:var(--muted);font-size:12.5px;margin-bottom:16px">${pz.flavors.join(" · ")}</p>
+  <div class="grid">${pz.flavors.map((f,fi)=>{
+    const firstSize = Object.keys(pz.sizes)[0];
+    return `<div class="card">
+     <div class="card-emoji">🍕</div><h3>${f}</h3>
+     <p class="desc">${pz.cat.toLowerCase()} — ${pz.flavors.length} signature flavors</p>
+     <div class="size-row" id="sz-${pi}-${fi}">${Object.entries(pz.sizes).map(([s,p],i)=>`<button class="size-btn ${i===0?"active":""}" data-price="${p}" onclick="pickSize(this,'${pi}-${fi}')">${s}<span class="sp">${p}</span></button>`).join("")}</div>
+     <div class="card-foot"><div class="price" id="pr-${pi}-${fi}">${fmt(pz.sizes[firstSize])}</div>
+     <button class="add-btn" onclick="addPizza('${f.replace(/'/g,"\'")}',${pi},${fi})">+ ADD</button></div></div>`;
+  }).join("")}</div></div>`).join("");
+
+/* generic simple grids */
+const simpleGrid = (arr, emoji, unit="") => arr.map(([n,p])=>`
+ <div class="card reveal"><div class="card-emoji">${emoji}</div><h3>${n}</h3>
+ <p class="desc">${unit}</p>
+ <div class="card-foot"><div class="price">${fmt(p)}</div><button class="add-btn" onclick="addToCart('${n.replace(/'/g,"\'")}',${p})">+ ADD</button></div></div>`).join("");
+
+document.getElementById("burgerGrid").innerHTML = simpleGrid(burgers,"🍔","Fresh, juicy & made to order");
+document.getElementById("sandwichGrid").innerHTML = simpleGrid(sandwiches,"🥪","Grilled fresh with signature sauces");
+document.getElementById("shawarmaGrid").innerHTML = simpleGrid(shawarmas,"🌯","Authentic Arabic-style shawarma");
+document.getElementById("parathaGrid").innerHTML = simpleGrid(parathas,"🫓","Crispy paratha rolled with fillings");
+document.getElementById("dessertGrid").innerHTML = simpleGrid(desserts,"🍰","Sweet ending to your meal");
+
+/* chicken with 5/10 pcs options */
+document.getElementById("chickenGrid").innerHTML = chicken.map((c,ci)=>{
+ if(c.opts){
+  return `<div class="card reveal"><div class="card-emoji">${c.emoji}</div><h3>${c.name}</h3><p class="desc">${c.desc}</p>
+   <div class="size-row" id="sz-c${ci}">${c.opts.map((o,i)=>`<button class="size-btn ${i===0?"active":""}" data-price="${o[1]}" onclick="pickSize(this,'c${ci}')">${o[0]}<span class="sp">${o[1]}</span></button>`).join("")}</div>
+   <div class="card-foot"><div class="price" id="pr-c${ci}">${fmt(c.opts[0][1])}</div>
+   <button class="add-btn" onclick="addChicken(${ci},'${c.name.replace(/'/g,"\'")}')">+ ADD</button></div></div>`;
+ }
+ return `<div class="card reveal"><div class="card-emoji">${c.emoji}</div><h3>${c.name}</h3><p class="desc">${c.desc}</p>
+  <div class="card-foot"><div class="price">${fmt(c.price)}</div><button class="add-btn" onclick="addToCart('${c.name.replace(/'/g,"\'")}',${c.price})">+ ADD</button></div></div>`;
+}).join("");
+
+/* pasta with F-1 / F-2 */
+document.getElementById("pastaGrid").innerHTML = pastas.map((p,pi)=>`
+ <div class="card reveal"><div class="card-emoji">🍝</div><h3>${p[0]}</h3><p class="desc">Cheesy creamy pasta — choose your size</p>
+  <div class="f-pasta-row" id="sz-p${pi}"><button class="size-btn active" data-price="${p[1]}" onclick="pickSize(this,'p${pi}')">Family (F-1)<span class="sp">${p[1]}</span></button><button class="size-btn" data-price="${p[2]}" onclick="pickSize(this,'p${pi}')">Party (F-2)<span class="sp">${p[2]}</span></button></div>
+  <div class="card-foot"><div class="price" id="pr-p${pi}">${fmt(p[1])}</div>
+  <button class="add-btn" onclick="addPasta('${p[0]}',${pi})">+ ADD</button></div></div>`).join("");
+
+/* platters */
+document.getElementById("platterGrid").innerHTML = platters.map(p=>`
+ <div class="card platter-card reveal"><div class="card-emoji">🍱</div><h3>${p.name}</h3>
+  <ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul>
+  <div class="card-foot" style="justify-content:center"><div class="price" style="margin-right:16px">${fmt(p.price)}</div>
+  <button class="add-btn" onclick="addToCart('${p.name}',${p.price})">+ ADD</button></div></div>`).join("");
+
+/* cakes */
+document.getElementById("cakeGrid").innerHTML = cakes.map(c=>`
+ <div class="card reveal"><div class="card-emoji">🎂</div><h3>${c}</h3>
+ <div class="cake-price-note">Custom made · Order on WhatsApp for price &amp; size</div>
+ <button class="add-btn" style="width:100%;padding:12px" onclick="addToCart('${c} (ask price)',0)">🟢 ASK PRICE ON WHATSAPP</button></div>`).join("");
+
+/* sauces */
+document.getElementById("sauceGrid").innerHTML = sauces.map(s=>`
+ <div class="card reveal"><div class="card-emoji">🥣</div><h3>${s}</h3><p class="desc">Perfect dip for wings, fries &amp; rolls</p>
+ <div class="card-foot"><div class="price">${fmt(50)}</div><button class="add-btn" onclick="addToCart('${s}',50)">+ ADD</button></div></div>`).join("");
+
+/* ============ CART LOGIC ============ */
+let cart = JSON.parse(localStorage.getItem("abp_cart")||"[]");
+
+function saveCart(){ localStorage.setItem("abp_cart", JSON.stringify(cart)); renderCart(); }
+function addToCart(name, price){
+  const ex = cart.find(i=>i.name===name);
+  if(ex) ex.qty++; else cart.push({name, price, qty:1});
+  saveCart(); showToast(name + " added ✓"); openCart();
+}
+function addPizza(flavor, pi, fi){
+  const active = document.querySelector(`#sz-${pi}-${fi} .size-btn.active`);
+  const size = active.textContent.replace(/[0-9]/g,"").trim();
+  addToCart(`${flavor} (${size})`, +active.dataset.price);
+}
+function addChicken(ci, name){
+  const active = document.querySelector(`#sz-c${ci} .size-btn.active`);
+  const pcs = active.textContent.replace(/[0-9]/g,"").trim();
+  addToCart(`${name} (${pcs})`, +active.dataset.price);
+}
+function addPasta(name, pi){
+  const active = document.querySelector(`#sz-p${pi} .size-btn.active`);
+  const label = active.textContent.replace(/[0-9]/g,"").replace("Family","F-1").replace("Party","F-2").trim();
+  addToCart(`${name} (${label})`, +active.dataset.price);
+}
+function changeQty(idx, d){
+  cart[idx].qty += d;
+  if(cart[idx].qty <= 0) cart.splice(idx,1);
+  saveCart();
+}
+function removeItem(idx){ cart.splice(idx,1); saveCart(); }
+
+function renderCart(){
+  const count = cart.reduce((a,i)=>a+i.qty,0);
+  const total = cart.reduce((a,i)=>a+i.price*i.qty,0);
+  const cc = document.getElementById("cartCount");
+  cc.textContent = count; cc.style.display = count? "flex":"none";
+  document.getElementById("cartTotal").textContent = fmt(total);
+  document.getElementById("cartItems").innerHTML = cart.length ? cart.map((i,idx)=>`
+   <div class="c-item">
+     <div class="c-info"><div class="c-name">${i.name}</div><div class="c-price">${i.price? fmt(i.price)+" × "+i.qty+" = "+fmt(i.price*i.qty) : "Ask price"}</div></div>
+     <div class="qty-row">
+       <button class="qty-btn" onclick="changeQty(${idx},-1)">−</button><span class="qty-num">${i.qty}</span><button class="qty-btn" onclick="changeQty(${idx},1)">+</button>
+     </div>
+     <button class="c-del" onclick="removeItem(${idx})">🗑</button>
+   </div>`).join("") : `<div class="cart-empty"><span class="big">🛒</span>Your cart is empty.<br>Add some delicious items!</div>`;
+}
+
+/* size picker */
+function pickSize(btn, id){
+  document.querySelectorAll(`#sz-${id} .size-btn`).forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("pr-"+id).textContent = fmt(+btn.dataset.price);
+}
+
+/* drawer */
+const drawer = document.getElementById("cartDrawer"), overlay = document.getElementById("overlay");
+function openCart(){ drawer.classList.add("open"); overlay.classList.add("open"); document.body.style.overflow="hidden"; }
+function closeCart(){ drawer.classList.remove("open"); overlay.classList.remove("open"); document.body.style.overflow=""; }
+document.getElementById("cartBtn").onclick = openCart;
+document.getElementById("cartClose").onclick = closeCart;
+overlay.onclick = closeCart;
+
+/* WhatsApp checkout */
+document.getElementById("waCheckout").onclick = () => {
+  if(!cart.length){ showToast("Cart is empty!"); return; }
+  const name = document.getElementById("custName").value.trim();
+  const addr = document.getElementById("custAddr").value.trim();
+  const total = cart.reduce((a,i)=>a+i.price*i.qty,0);
+  let msg = "Assalam-o-Alaikum! *New Order - Ali Baba Pizza*%0A%0A";
+  cart.forEach((i,idx)=>{ msg += `${idx+1}. ${i.name}  x${i.qty}${i.price? " - Rs."+(i.price*i.qty).toLocaleString():""}
+`; });
+  if(total) msg += `
+*Total: Rs.${total.toLocaleString()}*
+`;
+  msg += "
+------------------------";
+  if(name) msg += `
+Name: ${name}`;
+  if(addr) msg += `
+Address: ${addr}`;
+  msg += "
+
+Please confirm my order. 🍕";
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg).replace(/%250A/g,"%0A")}`, "_blank");
+};
+document.getElementById("clearCart").onclick = () => { cart=[]; saveCart(); };
+
+/* toast */
+let toastTimer;
+function showToast(text){
+  const t = document.getElementById("toast");
+  document.getElementById("toastMsg").textContent = text;
+  t.classList.add("show"); clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+/* ============ UI HELPERS ============ */
+/* mobile nav */
+const mNav = document.getElementById("mobileNav");
+document.getElementById("menuToggle").onclick = () => mNav.classList.toggle("open");
+mNav.querySelectorAll("a").forEach(a=>a.onclick = ()=>mNav.classList.remove("open"));
+
+/* chips scroll + active */
+document.querySelectorAll(".chip").forEach(ch=>{
+  ch.onclick = ()=>{
+    document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+    ch.classList.add("active");
+    document.getElementById(ch.dataset.target).scrollIntoView({behavior:"smooth"});
+  };
+});
+
+/* scroll spy for chips */
+const sections = chipData.map(c=>document.getElementById(c[0]));
+window.addEventListener("scroll", ()=>{
+  let cur = 0;
+  sections.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top < 180) cur = i; });
+  document.querySelectorAll(".chip").forEach((c,i)=>c.classList.toggle("active", i===cur));
+}, {passive:true});
+
+/* reveal on scroll */
+const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target);} }), {threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+renderCart();
+</script>
+</body>
+</html>
