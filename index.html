@@ -2,11 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=Index.html.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ali Baba Pizza</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17171a">
+  <meta name="description" content="Ali Baba Pizza Family Restaurant — pizzas, deals, burgers, shawarma and more. Order in Dijkot.">
+  <title>Ali Baba Pizza | Family Restaurant, Dijkot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#17171a;--panel:#222228;--muted:#b8b8c0;--orange:#f7941d;--green:#25d366}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}body{margin:0;background:var(--bg);color:#f5f5f5;font:16px Poppins, sans-serif}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{cursor:pointer;border:0}header{position:sticky;top:0;z-index:5;background:#17171af2;border-bottom:1px solid #f7941d55}.bar{max-width:1100px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font:700 22px Oswald,sans-serif;color:var(--orange)}nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px}nav a:hover{color:var(--orange)}.cart-button,.primary{background:var(--orange);color:#171717;font-weight:700;border-radius:12px;padding:11px 16px}.hero{text-align:center;padding:80px 18px 70px;background:radial-gradient(ellipse at center,#56340f 0,#17171a 65%)}.hero h1{font:700 clamp(42px,9vw,78px)/1.05 Oswald,sans-serif;margin:12px}.hero h1 span{color:var(--orange)}.hero p{color:var(--muted);max-width:620px;margin:16px auto 26px}.hero .primary{display:inline-block}main{max-width:1100px;margin:auto;padding:20px 18px 60px}section{padding:30px 0;scroll-margin-top:70px}h2{font:700 32px Oswald,sans-serif;margin:0 0 18px}h2 span{color:var(--orange)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}.card{background:var(--panel);border:1px solid #ffffff15;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:9px}.card h3{margin:0;font-size:17px}.card p{margin:0;color:var(--muted);font-size:13px}.price{color:var(--orange);font-weight:700;margin-top:auto;padding-top:8px}.add{background:var(--orange);color:#171717;padding:9px 13px;border-radius:9px;font-weight:700}.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.notice{color:var(--muted);font-size:14px}.cart-panel{position:fixed;z-index:10;inset:0 0 0 auto;width:min(420px,100%);background:var(--panel);padding:20px;transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column;gap:12px;box-shadow:-10px 0 35px #0008}.cart-panel.open{transform:translateX(0)}.cart-head{display:flex;justify-content:space-between;align-items:center}.cart-head h2{margin:0}.close{background:#393940;color:white;border-radius:9px;padding:8px 12px}.cart-items{overflow:auto;flex:1}.cart-line{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 0;border-bottom:1px solid #ffffff18}.cart-line small{display:block;color:var(--muted)}.qty{display:flex;gap:7px;align-items:center}.qty button{border-radius:7px;padding:4px 9px;background:#393940;color:white}.cart-panel input,.cart-panel textarea{width:100%;padding:11px;border:1px solid #ffffff30;border-radius:9px;background:#17171a;color:white}.cart-panel textarea{resize:vertical;min-height:70px}.checkout{background:var(--green);color:#102015;padding:13px;border-radius:10px;font-weight:700}.empty{color:var(--muted);padding:22px 0}.scrim{display:none;position:fixed;inset:0;background:#0009;z-index:9}.scrim.open{display:block}footer{text-align:center;color:var(--muted);padding:24px;border-top:1px solid #ffffff18} @media(max-width:700px){.bar{flex-wrap:wrap}nav{order:3;width:100%;overflow:auto;flex-wrap:nowrap;padding:5px 0}nav a{white-space:nowrap}.hero{padding-top:55px}h2{font-size:28px}}
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="Index.html.html">Ali Baba Pizza</a>...</p>
+  <header><div class="bar"><a class="brand" href="#home">🍕 ALI BABA PIZZA</a><nav aria-label="Menu"><a href="#deals">Deals</a><a href="#pizza">Pizza</a><a href="#chicken">Chicken</a><a href="#burgers">Burgers</a><a href="#more">More</a></nav><button class="cart-button" id="open-cart" type="button">🛒 Cart <span id="count">0</span></button></div></header>
+  <div class="hero" id="home"><div>⭐ FAMILY RESTAURANT · FREE HOME DELIVERY</div><h1>ALI BABA <span>PIZZA</span></h1><p>Fresh pizzas, sizzling chicken, burgers, shawarmas and more — delivered hot in Dijkot.</p><a class="primary" href="#deals">Explore the menu ↓</a></div>
+  <main>
+    <section id="deals"><h2>🔥 Hot <span>Deals</span></h2><div class="grid" id="deal-grid"></div></section>
+    <section id="pizza"><h2>🍕 Our <span>Pizzas</span></h2><div class="grid" id="pizza-grid"></div></section>
+    <section id="chicken"><h2>🍗 Fried <span>Chicken</span></h2><div class="grid" id="chicken-grid"></div></section>
+    <section id="burgers"><h2>🍔 <span>Burgers</span></h2><div class="grid" id="burger-grid"></div></section>
+    <section id="more"><h2>🌯 More <span>Favorites</span></h2><div class="grid" id="more-grid"></div></section>
+    <section id="contact"><h2>📞 <span>Contact & Delivery</span></h2><p class="notice">Near Ali Baba Bakery, Main Adda Dijkot · Free home delivery</p><p><a href="tel:03218583112">📞 0321-8583112</a> · <a href="tel:03038583311">📞 0303-8583311</a></p></section>
+  </main>
+  <div class="scrim" id="scrim"></div><aside class="cart-panel" id="cart" aria-label="Your order" aria-hidden="true"><div class="cart-head"><h2>Your <span>Order</span></h2><button class="close" id="close-cart" type="button">Close ✕</button></div><div class="cart-items" id="cart-items"></div><strong id="total">Total: Rs. 0</strong><input id="customer-name" placeholder="Your name" autocomplete="name"><textarea id="address" placeholder="Delivery address"></textarea><button class="checkout" id="checkout" type="button">Send order on WhatsApp</button></aside>
+  <footer>© <span id="year"></span> Ali Baba Pizza · Family Restaurant, Dijkot</footer>
+  <script>
+    (() => {
+      const whatsapp = '923218583112';
+      const menus = {
+        deals: [{name:'Deal 1 — 2 Small Regular Pizzas + Drink',price:1000},{name:'Deal 2 — Small Pizza + Zinger Burger + Drink',price:880},{name:'Deal 3 — 3 Zinger Burgers + Drink',price:1050},{name:'Deal 5 — Large Pizza + 10 Wings + Drink',price:1850}],
+        pizza: [{name:'Chicken Tikka Pizza',price:480},{name:'Chicken Fajita Pizza',price:480},{name:'Super Cheese Pizza',price:480},{name:'Malai Boti Pizza',price:500},{name:'Creamy Tikka Pizza',price:900},{name:'Royal Crust Pizza',price:1100}],
+        chicken: [{name:'Hot Wings (5 pcs)',price:270},{name:'Hot Wings (10 pcs)',price:530},{name:'Chicken Nuggets (5 pcs)',price:220},{name:'Chicken Nuggets (10 pcs)',price:430},{name:'Regular Fries',price:200},{name:'Loaded Fries',price:450}],
+        burgers: [{name:'Zinger Burger',price:320},{name:'Zinger Cheese Burger',price:420},{name:'Patty Burger',price:270},{name:'Tower Burger',price:450},{name:'Grilled Burger',price:400}],
+        more: [{name:'Chicken Shawarma',price:200},{name:'Malai Boti Shawarma',price:270},{name:'Chicken Paratha Roll',price:320},{name:'Creamy Pasta (Family)',price:390},{name:'Molten Lava Cake',price:390},{name:'Dip Sauce',price:50}]
+      };
+      const money = n => `Rs. ${Number(n).toLocaleString()}`;
+      let cart = [];
+      try { const saved = JSON.parse(localStorage.getItem('abp_cart') || '[]'); if (Array.isArray(saved)) cart = saved.filter(i => i && typeof i.name === 'string' && Number.isFinite(i.price) && Number.isFinite(i.qty)); } catch (_) { cart = []; }
+      function renderMenu(id, items) {
+        document.getElementById(id).innerHTML = items.map((item, index) => `<article class="card"><h3>${item.name}</h3><div class="card-bottom"><span class="price">${money(item.price)}</span><button class="add" type="button" data-menu="${id}" data-index="${index}">+ Add</button></div></article>`).join('');
+      }
+      renderMenu('deal-grid', menus.deals); renderMenu('pizza-grid', menus.pizza); renderMenu('chicken-grid', menus.chicken); renderMenu('burger-grid', menus.burgers); renderMenu('more-grid', menus.more);
+      function persist() { try { localStorage.setItem('abp_cart', JSON.stringify(cart)); } catch (_) {} renderCart(); }
+      function renderCart() {
+        const count = cart.reduce((sum, item) => sum + item.qty, 0), total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        document.getElementById('count').textContent = count; document.getElementById('total').textContent = `Total: ${money(total)}`;
+        document.getElementById('cart-items').innerHTML = cart.length ? cart.map((item, i) => `<div class="cart-line"><div>${item.name}<small>${money(item.price)} × ${item.qty}</small></div><div class="qty"><button type="button" data-change="-1" data-index="${i}" aria-label="Remove one">−</button><span>${item.qty}</span><button type="button" data-change="1" data-index="${i}" aria-label="Add one">+</button></div></div>`).join('') : '<p class="empty">Your cart is empty. Add something delicious!</p>';
+      }
+      document.addEventListener('click', event => {
+        const add = event.target.closest('[data-menu]');
+        if (add) { const item = menus[add.dataset.menu][Number(add.dataset.index)]; const existing = cart.find(i => i.name === item.name); if (existing) existing.qty += 1; else cart.push({...item, qty:1}); persist(); openCart(); return; }
+        const change = event.target.closest('[data-change]');
+        if (change) { const i = Number(change.dataset.index); cart[i].qty += Number(change.dataset.change); if (cart[i].qty <= 0) cart.splice(i,1); persist(); }
+      });
+      const panel = document.getElementById('cart'), scrim = document.getElementById('scrim');
+      function openCart() { panel.classList.add('open'); scrim.classList.add('open'); panel.setAttribute('aria-hidden','false'); }
+      function closeCart() { panel.classList.remove('open'); scrim.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
+      document.getElementById('open-cart').addEventListener('click', openCart); document.getElementById('close-cart').addEventListener('click', closeCart); scrim.addEventListener('click', closeCart);
+      document.getElementById('checkout').addEventListener('click', () => {
+        if (!cart.length) { alert('Your cart is empty.'); return; }
+        const total = cart.reduce((sum,item) => sum + item.price * item.qty, 0);
+        const lines = cart.map(item => `${item.name} × ${item.qty} — ${money(item.price * item.qty)}`);
+        const name = document.getElementById('customer-name').value.trim(), address = document.getElementById('address').value.trim();
+        const message = ['Assalam-o-Alaikum! New order for Ali Baba Pizza', '', ...lines, '', `Total: ${money(total)}`, name && `Name: ${name}`, address && `Address: ${address}`].filter(Boolean).join('\n');
+        window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+      });
+      document.getElementById('year').textContent = new Date().getFullYear(); renderCart();
+    })();
+  </script>
 </body>
 </html>
